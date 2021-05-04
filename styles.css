@@ -1,0 +1,19 @@
+* {
+    padding: 5px;
+}
+.todo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    border: 1px solid rgb(92, 169, 204);
+    margin-top: 5px;
+  
+}
+
+#title {
+    text-decoration: none;
+    color: rgb(61, 48, 180);
+}
+
