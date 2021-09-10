@@ -3,7 +3,7 @@
 include_once "db.inc.php";
 if (isset($_POST['search'])) {
     $search = $_POST['search'];
-    $query = "SELECT * FROM tasklist WHERE t_name LIKE '%$search%' ";
+    $query = "SELECT * FROM task_list WHERE t_name LIKE '%$search%' ";
     $result = mysqli_query($conn, $query);
 }
 

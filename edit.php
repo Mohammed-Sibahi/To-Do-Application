@@ -9,7 +9,7 @@ if (isset($_GET['edit_todo'])) {
 if(isset($_POST['edit_todo'])) {
     $edit_todo = $_POST['todo'];
 
-    $query = "UPDATE tasklist SET t_name = '$edit_todo' WHERE t_id = $e_id";
+    $query = "UPDATE task_list SET t_name = '$edit_todo' WHERE t_id = $e_id";
     $run = mysqli_query($conn, $query);
 
     if(!$run) {
@@ -43,7 +43,7 @@ if(isset($_POST['edit_todo'])) {
 
             <?php 
             
-            $sql = "SELECT * FROM tasklist WHERE t_id = $e_id";
+            $sql = "SELECT * FROM task_list WHERE t_id = $e_id";
             $result = mysqli_query($conn, $sql);
             $data = mysqli_fetch_array($result);
             

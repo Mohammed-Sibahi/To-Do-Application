@@ -2,19 +2,21 @@
 
 include_once "db.inc.php";
 
-$query = "SELECT * FROM tasklist";
+$query = "SELECT * FROM task_list";
 $result = mysqli_query($conn, $query);
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
     $todo = $_POST['todo'];
-   $date = date('l dS F\, Y');
+   $date = date('Y-m-d');
+
+   // $date = date('l dS F\, Y');
    
    if (empty($todo)) {
     $error = "Field is required. Add a new task!";
    }
    else {
-    $sql = "INSERT INTO tasklist (t_name, t_date) VALUES('$todo', '$date');";
+    $sql = "INSERT INTO task_list (t_name, t_date) VALUES('$todo', '$date');";
     $results = mysqli_query($conn, $sql);
 
     if (!$results) {
@@ -27,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 if(isset($_GET['delete_todo'])) {
     $dtl_todo = $_GET['delete_todo'];
-    $sqli = "DELETE FROM tasklist WHERE t_id = $dtl_todo";
+    $sqli = "DELETE FROM task_list WHERE t_id = $dtl_todo";
     $res = mysqli_query($conn, $sqli);
     if (!$res) {
         die("Failed");
